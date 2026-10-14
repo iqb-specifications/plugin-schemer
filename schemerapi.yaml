@@ -1,15 +1,8 @@
 asyncapi: 2.5.0
 info:
   title: Verona Inferfaces Specification "Schemer"
-  version: '3.3.0'
-  description: This is one part of the [Verona Online Assessment Standards](https://verona-interfaces.github.io).
-    All messages are sent via the postMessage function of the html page. The schemer takes the page root of its parent
-    as target (parent.window), and the application binds the function call to the iframe element of the schemer.
-
-    Most important, the message body carries as first parameter the operationId of the message.
-
-    The html page MUST contain a script-tag with metadata. The syntax and structure of this data are described
-    [here](https://verona-interfaces.github.io/intro/metadata.html).
+  version: '4.0.0'
+  description: This is one part of the [TBA Plugin Standards](https://iqb-specifications.github.io/concepts/plugins/).
 
   license:
     name: CC0-1.0
@@ -116,11 +109,6 @@ channels:
               type: array
               items:
                 $ref: "#/components/schemas/DerivedVariable"
-            dependenciesToCode:
-              description: Files to provide or services to keep accessible during the coding of responses to the items of the unit.
-              type: array
-              items:
-                $ref: "#/components/schemas/Dependency"
             sharedParameters:
               type: array
               items:
@@ -156,21 +144,6 @@ components:
           "value": "INSTRUCTIONS_ONLY"
         }
 
-    Dependency:
-      type: object
-      properties:
-        id:
-          type: string
-          example: 'https://short-answer-supercoder.iqb-berlin.de'
-        type:
-          type: string
-          enum:
-            - file
-            - service
-      required:
-        - id
-        - type
-
     SchemerConfig:
       type: object
       properties:
@@ -184,7 +157,7 @@ components:
             $ref: "#/components/schemas/SharedParameter"
 
     Variable:
-      $ref: https://w3id.org/iqb/spec/variable-info/2.0
+      $ref: https://w3id.org/iqb/spec/variable-info/2.1
 
     DerivedVariable:
       type: object
